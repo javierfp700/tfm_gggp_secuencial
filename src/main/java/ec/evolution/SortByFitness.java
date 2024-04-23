@@ -1,7 +1,6 @@
 package ec.evolution;
 
 import java.util.Comparator;
-import ec.evolution.Individual;
 
 public class SortByFitness implements Comparator<Individual> {
 

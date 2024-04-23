@@ -1,7 +1,6 @@
-package robocode.battle;
+package validate;
 
 import java.io.File;
-import ec.evolution.Individual;
 import gp.algorithm.GPConstants;
 import robocode.RobocodeConstants;
 import robocode.control.BattleSpecification;
@@ -9,7 +8,7 @@ import robocode.control.BattlefieldSpecification;
 import robocode.control.RobocodeEngine;
 import robocode.control.RobotSpecification;
 
-public class BattleSimulator {
+public class ValidateBattleSimulator {
 
   public static final int WIDTH_BATTLEFIELD=800;
   public static final int HEIGHT_BATTLEFIELD=600;
@@ -17,12 +16,11 @@ public class BattleSimulator {
 
   /**
    * Simulate battle
-   * @param individual individual participating in battle
    */
-  public static void simulateBattle(Individual individual,String opponent){
+  public static void simulateBattle(String opponent){
     RobocodeEngine.setLogMessagesEnabled(false);
     RobocodeEngine engine = new RobocodeEngine(new File(RobocodeConstants.ROBOCODE_PATH));
-    engine.addBattleListener(new BattleObserver(individual));
+    engine.addBattleListener(new ValidateBattleObserver());
     engine.setVisible(false);
     BattlefieldSpecification battlefield = new BattlefieldSpecification(WIDTH_BATTLEFIELD, HEIGHT_BATTLEFIELD); // 800x600
     RobotSpecification[] selectedRobots = engine

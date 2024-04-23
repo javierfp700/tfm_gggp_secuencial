@@ -3,17 +3,9 @@ import robocode.*;
 import java.awt.Color;
 import java.io.*;
 
-// API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
-
-/**
- * JaviRobot - a robot by (your name here)
- */
 public class GPRobot extends AdvancedRobot
 {
 
-	/**
-	 * run: JaviRobot's default behavior
-	 */
 	public void run() {
 		setBodyColor(Color.red);
 		setGunColor(Color.black);
@@ -27,9 +19,6 @@ public class GPRobot extends AdvancedRobot
 		}
 	}
 
-	/**
-	 * onScannedRobot:  Fire!
-	 */
 	public void onScannedRobot(ScannedRobotEvent event) {
 		/* ON_SCANNED_ROBOT_CODE */
 

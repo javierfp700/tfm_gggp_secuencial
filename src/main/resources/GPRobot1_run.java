@@ -4,11 +4,6 @@ import java.awt.Color;
 import java.io.*;
 import java.util.Arrays;
 
-// API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
-
-/**
- * JaviRobot - a robot by (your name here)
- */
 public class GPRobot extends AdvancedRobot
 {
 
@@ -16,9 +11,6 @@ public class GPRobot extends AdvancedRobot
 	static int numScanned=0;
 	static int numRun=0;
 
-	/**
-	 * run: JaviRobot's default behavior
-	 */
 	public void run() {
 		setBodyColor(Color.red);
 		setGunColor(Color.black);
@@ -35,9 +27,6 @@ public class GPRobot extends AdvancedRobot
 		}
 	}
 
-	/**
-	 * onScannedRobot:  Fire!
-	 */
 	public void onScannedRobot(ScannedRobotEvent event) {
 		if(!isScanned){
 			numScanned=numScanned+1;
@@ -48,9 +37,6 @@ public class GPRobot extends AdvancedRobot
 		scan();
 	}
 
-	/**
-	 * onBattleEnded
-	 */
 	public void onBattleEnded(BattleEndedEvent event) {
 		PrintStream w = null;
 		try {

@@ -1,7 +1,6 @@
 package gp.results;
 
 import ec.evolution.Individual;
-import gp.evolution.IndividualGP;
 
 public final class GPResults {
   private static GPResults instance;
@@ -38,7 +37,4 @@ public final class GPResults {
     return bestScannedIndividual;
   }
 
-  public Individual getBestHitBulletIndividual(){
-    return bestHitBulletIndividual;
-  }
 }

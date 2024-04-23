@@ -1,8 +1,5 @@
 package ec.evolution;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +10,6 @@ import java.util.List;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.io.IOUtils;
-import converter.JavaCodeConverter;
 import gp.algorithm.GPConstants;
 import gp.structure.DerivationTree;
 import robocode.BattleResults;
@@ -90,77 +86,6 @@ public abstract class Individual implements Serializable {
   }
 
   /**
-   * Set fitness
-   * @param battleResults battle results
-   */
-  /* public void setFitness(BattleResults[] battleResults){
-    int gpRobotScore=0;
-    int opponentScore=0;
-    for (robocode.BattleResults result : battleResults) {
-      if(result.getTeamLeaderName().equals(GPConstants.GP_ROBOT)){
-        gpRobotScore=result.getScore();
-      } else {
-        opponentScore=result.getScore();
-      }
-    }
-    fitness=gpRobotScore-opponentScore;
-  }*/
-
-  //0 is the best fitness
- /* public void setFitness(){
-    BufferedReader reader;
-    try {
-      File file = new File("/home/jfernandez/robocode/robots/gp/GPRobot.data/battleData.dat");
-      reader = new BufferedReader(new FileReader(file));
-      String line;
-      float hitWalls=0;
-      float totalTurns=0;
-      float bulletHitAnotherRobot=0;
-      float scannedRobot=0;
-      float bulletHitMissed=0;
-      List<Float> fitnessBattle=new ArrayList<>();
-      while((line=reader.readLine()) != null){
-        String[] lineElements=line.split(" ");
-        if(lineElements[0].equals("Hit_wall")){
-          hitWalls=Float.parseFloat(lineElements[1]);
-          hitWallsList.add(hitWalls);
-        }
-        if(lineElements[0].equals("Total_turns")){
-          totalTurns=Float.parseFloat(lineElements[1]);
-          totalTurnsList.add(totalTurns);
-        }
-        if(lineElements[0].equals("Bullet_hit_another_robot")){
-          bulletHitAnotherRobot=Float.parseFloat(lineElements[1]);
-          bulletHitAnotherRobotList.add(bulletHitAnotherRobot);
-        }
-        if(lineElements[0].equals("Scanned_robots")){
-          scannedRobot=Float.parseFloat(lineElements[1]);
-          scannedRobotList.add(scannedRobot);
-        }
-        if(lineElements[0].equals("Bullet_hit_missed")){
-          bulletHitMissed=Float.parseFloat(lineElements[1]);
-          bulletHitMissedList.add(bulletHitMissed);
-        }
-        if(lineElements[0].equals("Reached_spaces")){
-          float reachedSpaces=Float.parseFloat(lineElements[1]);
-          spacesAchieved.add(reachedSpaces);
-          float fitnessRound=scannedRobot+10*bulletHitAnotherRobot-3*bulletHitMissed;
-          ////float fitnessRound=weightHitsWalls*(100-(hitWalls/totalTurns)*100)+weightReachedSpaces*((reachedSpaces/totalSpaces)*100);
-          //float fitnessRound=150*reachedSpaces+(totalTurns-hitWalls);
-          ////float fitnessRound=14*(reachedSpaces/100)+((totalTurns-hitWalls)/totalTurns);
-          fitnessBattle.add(fitnessRound);
-        }
-      }
-      //fitness=totalTurns/hitWalls; //movimientos circulars sobre si mismo sin moverse del sitio
-      fitness=fitnessBattle.stream().reduce(0F,Float::sum);
-      reader.close();
-      file.delete();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }*/
-
-  /**
    * Evaluate individual
    */
   public void evaluate(String opponent){
@@ -170,9 +95,6 @@ public abstract class Individual implements Serializable {
     compileIndividual();
     simulateBattle(opponent);
   }
-
-
-
   /**
    * Get java template with skeleton of robot code
    * @return content with skeleton of robot code

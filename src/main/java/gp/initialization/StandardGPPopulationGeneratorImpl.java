@@ -1,14 +1,10 @@
 package gp.initialization;
 
 import ec.evolution.Individual;
+import ec.evolution.Population;
 import ec.initialization.PopulationGenerator;
 import gp.algorithm.GPConstants;
-import gp.evolution.IndividualGP;
-import ec.evolution.Population;
 import gp.evolution.IndividualGPFactory;
-import gp.evolution.IndividualHitBulletGP;
-import gp.evolution.IndividualRunGP;
-import gp.evolution.IndividualScannedGP;
 import gp.grammar.Grammar;
 import gp.structure.DerivationTree;
 

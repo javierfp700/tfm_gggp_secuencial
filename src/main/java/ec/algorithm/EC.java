@@ -21,7 +21,7 @@ public abstract class EC {
   private final Mutation mutation;
   private final Replacement replacement;
 
-  public EC(PopulationGenerator populationGenerator,Selector selector, Crossover crossover, Mutation mutation, Replacement replacement, String algorithm){
+  public EC(PopulationGenerator populationGenerator,Selector selector, Crossover crossover, Mutation mutation, Replacement replacement){
     this.populationGenerator=populationGenerator;
     this.selector=selector;
     this.crossover=crossover;
@@ -82,23 +82,4 @@ public abstract class EC {
 
   public abstract String getGrammarName();
 
-  public PopulationGenerator getPopulationGenerator() {
-    return populationGenerator;
-  }
-
-  public Selector getSelector() {
-    return selector;
-  }
-
-  public Crossover getCrossover() {
-    return crossover;
-  }
-
-  public Mutation getMutation() {
-    return mutation;
-  }
-
-  public Replacement getReplacement() {
-    return replacement;
-  }
 }

@@ -68,14 +68,6 @@ public class JavaCodeConverter {
           javaCode =
               javaCode + newLineAndTabulate(grammarName, false) + "}" + newLineAndTabulate(grammarName, false) + "else{";
           break;
-        //case "###":
-          //Run method are only actions (no conditionals)
-        //  if (block != 0) {
-        //    javaCode =
-        //        javaCode + newLineAndTabulate(block, false) + "}";
-        //  }
-        //  block = block + 1;
-        //  break;
         case "distance":
           javaCode = javaCode + "event.getDistance()";
           break;

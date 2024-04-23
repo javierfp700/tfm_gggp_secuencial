@@ -33,17 +33,6 @@ public class IndividualHitBulletGP extends IndividualGP{
    */
   @Override
   public String replaceJavaTemplateWithCode(String javaTemplate){
-    /*String[] codeBlocks=getPhenotype().split("###");
-    String templateWithCode=javaTemplate.replace(GPConstants.RUN_CODE_TAG,codeBlocks[0]);
-    /*templateWithCode=templateWithCode.replace(GPConstants.ON_BULLET_HIT_CODE_TAG,codeBlocks[1]);
-    templateWithCode=templateWithCode.replace(GPConstants.ON_BULLET_HIT_BULLET_CODE_TAG,codeBlocks[2]);
-    templateWithCode=templateWithCode.replace(GPConstants.ON_BULLET_MISSED_CODE_TAG,codeBlocks[3]);
-    templateWithCode=templateWithCode.replace(GPConstants.ON_HIT_BY_BULLET_CODE_TAG,codeBlocks[4]);
-    templateWithCode=templateWithCode.replace(GPConstants.ON_HIT_ROBOT_CODE_TAG,codeBlocks[5]);
-    templateWithCode=templateWithCode.replace(GPConstants.ON_HIT_WALL_CODE_TAG,codeBlocks[6]);
-    templateWithCode=templateWithCode.replace(GPConstants.ON_SCANNED_ROBOT_CODE_TAG,codeBlocks[7]);
-    templateWithCode=templateWithCode.replace(GPConstants.EMPTY_TAG,GPConstants.EMPTY_VALUE);
-    return templateWithCode;*/
     String code = JavaCodeConverter.convertToJavaCode(getPhenotype(), GPConstants.GRAMMAR_HIT_BULLET_NAME);
     String templateWithCode=javaTemplate.replace(GPConstants.ON_HIT_BY_BULLET_CODE_TAG,code);
 

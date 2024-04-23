@@ -5,29 +5,21 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Random;
-import java.util.stream.Collectors;
 import gp.algorithm.GPConstants;
 import gp.structure.DerivationTree;
 import gp.structure.Node;
 
 public class Grammar {
 
-  private static final String GRAMMAR_FILE="grammar.bnf";
   private static final String SEPARATOR_ANTECEDENTS_CONSEQUENTS=" ::= ";
-  private static final String SEPARATOR_CONSEQUENTS=" \\| ";
   private static final String SEPARATOR_CLAUSE=" ";
   private static final String START_NO_TERMINAL_CLAUSE="<";
   private static final String END_NO_TERMINAL_CLAUSE=">";
-  private static final Integer RULES_NUM_MAX=15;
-  private static final Integer ANTECEDENTS_NUM_MAX=6;
-  private static final String RECURSIVE_RULES_NO_TERMINAL="<RUN_CODE_RULES>";
-  private static final String RECURSIVE_ANTECEDENTS_NO_TERMINAL="<RUN_CODE_ANTECEDENTS>";
 
   private Map<Symbol, List<Consequent>> grammarSymbolsMap;
 
@@ -82,21 +74,6 @@ public class Grammar {
   }
 
   /**
-   * Get list with consequents of rule
-   * @param consequents consequents of rule
-   * @return list with consequents
-   */
-  /*private static List<List<Symbol>> getConsequentsSymbols(String consequents){
-    List<String> consequentsList= Arrays.asList(consequents.split(SEPARATOR_CONSEQUENTS));
-    List<List<Symbol>> consequentsSymbols=new ArrayList<>();
-    for(String consequent:consequentsList){
-      List<Symbol> consequentSymbols=getConsequentSymbols(consequent);
-      consequentsSymbols.add(consequentSymbols);
-    }
-    return consequentsSymbols;
-  }*/
-
-  /**
    * Get clauses (symbols) of consequent
    * @param consequent consequent of rule
    * @return list of clauses of consequent
@@ -123,23 +100,6 @@ public class Grammar {
     probability=probability.substring(1,probability.length()-1);
     return Double.parseDouble(probability);
   }
-
-
-  /**
-   * Generate a derivation tree from grammar
-   * @param depthLimit maximum depth of derivation tree
-   * @return derivation tree
-   */
- /* public DerivationTree generateDerivationTree(int depthLimit){
-    Random random=new Random();
-    int rulesNumber=random.nextInt(RULES_NUM_MAX)+1;
-    List<Integer> antecedentsByRule=new ArrayList<>();
-    while(antecedentsByRule.size()<rulesNumber){
-      int antecedentsNumberRule=random.nextInt(ANTECEDENTS_NUM_MAX);
-      antecedentsByRule.add(antecedentsNumberRule);
-    }
-    return generateDerivationTree(depthLimit,GPConstants.AXIOM,antecedentsByRule);
-  }*/
 
   public DerivationTree generateDerivationTree(int depthLimit){
     return generateDerivationTree(depthLimit,GPConstants.AXIOM);

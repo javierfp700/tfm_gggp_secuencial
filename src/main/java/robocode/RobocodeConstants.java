@@ -5,12 +5,6 @@ public class RobocodeConstants {
   public static final String ROBOCODE_PATH="/home/jfernandez/robocode";
   public static final String GP_ROBOT_PACKAGE=ROBOCODE_PATH+"/robots/gp/";
   public static final String ROBOCODE_JAR=ROBOCODE_PATH+"/libs/robocode.jar";
-  public static final String CORNER_OPPONENT_ROBOT="sample.Corners";
-  public static final String CRAZY_OPPONENT_ROBOT="sample.Crazy";
-  public static final String FIRE_OPPONENT_ROBOT="sample.Fire";
-  public static final String MY_FIRST_JUNIOR_ROBOT_OPPONENT_ROBOT="sample.MyFirstJuniorRobot";
-  public static final String MY_FIRST_ROBOT_OPPONENT_ROBOT="sample.MyFirstRobot";
-  public static final String RAM_FIRE_OPPONENT_ROBOT="sample.RamFire";
   public static final String WALLS_OPPONENT_ROBOT="sample.Walls";
   public static final String KAWIGI_ROBOT="kawigi.micro.Shiz 1.1";
   public static final String WESCO_ROBOT="ratosh.Wesco 1.4";
@@ -19,5 +13,4 @@ public class RobocodeConstants {
   public static final String WRAITH_ROBOCODE="rdt.Wraith.Wraith 0.3";
 
 
-  public static final String OPPONENT_ROBOT="gp.NoFire*";
 }

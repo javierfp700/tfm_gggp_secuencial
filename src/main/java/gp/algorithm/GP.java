@@ -1,6 +1,5 @@
 package gp.algorithm;
 
-import org.apache.commons.io.FilenameUtils;
 import ec.algorithm.EC;
 import ec.replacement.SteadyStateReplacementImpl;
 import ec.selection.TournamentSelectorImpl;
@@ -17,8 +16,7 @@ public class GP extends EC {
         new TournamentSelectorImpl(GPConstants.GP_REPLACED_POPULATION_PERCENTAGE,GPConstants.GP_TOURNAMENT_SIZE),
         new WhighamCrossoverImpl(grammarName),
         new StandardGPMutationImpl(grammarName),
-        new SteadyStateReplacementImpl(GPConstants.GP_REPLACED_POPULATION_PERCENTAGE),
-        "GP");
+        new SteadyStateReplacementImpl(GPConstants.GP_REPLACED_POPULATION_PERCENTAGE));
     this.grammarName=grammarName;
   }
 

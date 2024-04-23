@@ -40,19 +40,7 @@ public class IndividualScannedGP extends IndividualGP{
    */
   @Override
   public String replaceJavaTemplateWithCode(String javaTemplate){
-    /*String[] codeBlocks=getPhenotype().split("###");
-    String templateWithCode=javaTemplate.replace(GPConstants.RUN_CODE_TAG,codeBlocks[0]);
-    /*templateWithCode=templateWithCode.replace(GPConstants.ON_BULLET_HIT_CODE_TAG,codeBlocks[1]);
-    templateWithCode=templateWithCode.replace(GPConstants.ON_BULLET_HIT_BULLET_CODE_TAG,codeBlocks[2]);
-    templateWithCode=templateWithCode.replace(GPConstants.ON_BULLET_MISSED_CODE_TAG,codeBlocks[3]);
-    templateWithCode=templateWithCode.replace(GPConstants.ON_HIT_BY_BULLET_CODE_TAG,codeBlocks[4]);
-    templateWithCode=templateWithCode.replace(GPConstants.ON_HIT_ROBOT_CODE_TAG,codeBlocks[5]);
-    templateWithCode=templateWithCode.replace(GPConstants.ON_HIT_WALL_CODE_TAG,codeBlocks[6]);
-    templateWithCode=templateWithCode.replace(GPConstants.ON_SCANNED_ROBOT_CODE_TAG,codeBlocks[7]);
-    templateWithCode=templateWithCode.replace(GPConstants.EMPTY_TAG,GPConstants.EMPTY_VALUE);
-    return templateWithCode;*/
     String code = JavaCodeConverter.convertToJavaCode(getPhenotype(), GPConstants.GRAMMAR_SCANNED_NAME);
-    //code = code.replace("fire(","makeFire(");
     String templateWithCode=javaTemplate.replace(GPConstants.ON_SCANNED_ROBOT_CODE_TAG,code);
 
 
@@ -71,8 +59,6 @@ public class IndividualScannedGP extends IndividualGP{
       File file = new File("/home/jfernandez/robocode/robots/gp/GPRobot.data/battleData.dat");
       reader = new BufferedReader(new FileReader(file));
       String line;
-      //int consecutiveScannedGroups=0;
-      //int numScanned=0;
       while((line=reader.readLine()) != null){
         String[] lineElements=line.split(" ");
         if(lineElements[0].equals("Num_scanned")){
